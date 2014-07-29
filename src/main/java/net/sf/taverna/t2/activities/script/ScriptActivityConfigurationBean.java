@@ -22,6 +22,8 @@ package net.sf.taverna.t2.activities.script;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import net.sf.taverna.t2.activities.dependencyactivity.DependencyActivityConfigurationBean;
 
@@ -43,10 +45,13 @@ public class ScriptActivityConfigurationBean extends DependencyActivityConfigura
 	private boolean includedStdOut;
 	private boolean includedStdErr;
 	
+	private Map<String, ScriptEscapingType> inputEscaping;
+	
 	public ScriptActivityConfigurationBean() {
 		super();
 		this.script = "";
 		this.engineName = null;
+		this.inputEscaping = new TreeMap<String, ScriptEscapingType>();
 	}
 
 	/**
@@ -140,6 +145,23 @@ public class ScriptActivityConfigurationBean extends DependencyActivityConfigura
 	 */
 	public final void setIncludedStdErr(boolean includedStdErr) {
 		this.includedStdErr = includedStdErr;
+	}
+
+	public Map<String, ScriptEscapingType> getInputEscaping() {
+		return inputEscaping;
+	}
+
+	public ScriptEscapingType getInputEscaping(String portName) {
+		ScriptEscapingType result = inputEscaping.get(portName);
+		if (result == null) {
+			return ScriptEscapingType.TEXT;
+		} else {
+			return result;
+		}
+	}
+
+	public void setInputEscaping(Map<String, ScriptEscapingType> inputEscaping) {
+		this.inputEscaping = inputEscaping;
 	}
 	
 }

@@ -156,6 +156,10 @@ public class ScriptActivity extends
 						for (String inputName : data.keySet()) {
 
 							ActivityInputPort inputPort = getInputPort(inputName);
+							if (inputPort == null) {
+								callback.fail("Unexpected data for port " + inputName);
+								return;
+							}
 							Object input = referenceService.renderIdentifier(data
 									.get(inputName), inputPort
 									.getTranslatedElementClass(), callback
@@ -164,7 +168,8 @@ public class ScriptActivity extends
 							if (inputName.equals(STDIN)) {
 								stdInReader = new StringReader((String) input);
 							} else {
-								bindings.put(inputName, input);
+								ScriptEscapingType escaping = getConfiguration().getInputEscaping(inputName);
+								bindings.put(inputName, escaping.parse(input));
 							}
 						}
 						context.setReader(stdInReader);

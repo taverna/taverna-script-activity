@@ -11,6 +11,14 @@
 	<name>Taverna 2 Script Activity</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
+	
+	<dependency>
+	<groupId>net.minidev</groupId>
+	<artifactId>json-smart</artifactId>
+	<version>1.1.1</version>
+</dependency>
+	
+	
 		<dependency>
 			<groupId>net.sf.taverna.t2.core</groupId>
 			<artifactId>reference-api</artifactId>

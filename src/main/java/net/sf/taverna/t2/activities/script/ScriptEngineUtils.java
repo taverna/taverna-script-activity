@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.script.ScriptEngine;
@@ -35,6 +36,15 @@ public class ScriptEngineUtils {
 	 */
 	public static List<ScriptEngineFactory> getApplicableFactories() {
 		return sem.getEngineFactories();
+	}
+	
+	public static List<String> getApplicableFactoryNames() {
+		List<String> result = new ArrayList<String>();
+		for (ScriptEngineFactory sef : getApplicableFactories()) {
+			result.add(sef.getEngineName());
+		}
+		Collections.sort(result);
+		return result;
 	}
 	
 	private static URLClassLoader getClassLoader() {
