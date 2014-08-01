@@ -41,10 +41,6 @@ public class ScriptActivityConfigurationBean extends DependencyActivityConfigura
 
 	private String script;
 	
-	private boolean includedStdIn;
-	private boolean includedStdOut;
-	private boolean includedStdErr;
-	
 	private Map<String, ScriptEscapingType> inputEscaping;
 	
 	public ScriptActivityConfigurationBean() {
@@ -103,48 +99,6 @@ public class ScriptActivityConfigurationBean extends DependencyActivityConfigura
 	 */
 	public final void setEngineName(String engineName) {
 		this.engineName = engineName;
-	}
-
-	/**
-	 * @return the includedStdIn
-	 */
-	public final boolean isIncludedStdIn() {
-		return includedStdIn;
-	}
-
-	/**
-	 * @param includedStdIn the includedStdIn to set
-	 */
-	public final void setIncludedStdIn(boolean includedStdIn) {
-		this.includedStdIn = includedStdIn;
-	}
-
-	/**
-	 * @return the includedStdOut
-	 */
-	public final boolean isIncludedStdOut() {
-		return includedStdOut;
-	}
-
-	/**
-	 * @param includedStdOut the includedStdOut to set
-	 */
-	public final void setIncludedStdOut(boolean includedStdOut) {
-		this.includedStdOut = includedStdOut;
-	}
-
-	/**
-	 * @return the includedStdErr
-	 */
-	public final boolean isIncludedStdErr() {
-		return includedStdErr;
-	}
-
-	/**
-	 * @param includedStdErr the includedStdErr to set
-	 */
-	public final void setIncludedStdErr(boolean includedStdErr) {
-		this.includedStdErr = includedStdErr;
 	}
 
 	public Map<String, ScriptEscapingType> getInputEscaping() {

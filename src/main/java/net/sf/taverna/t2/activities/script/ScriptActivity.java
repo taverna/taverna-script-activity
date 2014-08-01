@@ -80,16 +80,10 @@ public class ScriptActivity extends
 		this.configurationBean = configurationBean;
 		checkGranularDepths();
 		configurePorts(configurationBean);
-		if (configurationBean.isIncludedStdIn()) {
 			List<Class<? extends ExternalReferenceSPI>> handledReferenceSchemes = new ArrayList<Class<? extends ExternalReferenceSPI>>();
 			addInput(STDIN, 0, true, handledReferenceSchemes, String.class);
-		}
-		if (configurationBean.isIncludedStdOut()) {
 			addOutput(STDOUT, 0);
-		}
-		if (configurationBean.isIncludedStdErr()) {
 			addOutput(STDERR, 0);
-		}
 	}
 
 	/**
