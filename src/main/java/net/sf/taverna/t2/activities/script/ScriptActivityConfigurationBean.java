@@ -37,6 +37,8 @@ import net.sf.taverna.t2.activities.dependencyactivity.DependencyActivityConfigu
  */
 public class ScriptActivityConfigurationBean extends DependencyActivityConfigurationBean {
 	
+	private static final String DEFAULT_ENGINE_NAME = "velocity";
+	
 	private String engineName;
 
 	private String script;
@@ -46,7 +48,7 @@ public class ScriptActivityConfigurationBean extends DependencyActivityConfigura
 	public ScriptActivityConfigurationBean() {
 		super();
 		this.script = "";
-		this.engineName = null;
+		this.engineName = DEFAULT_ENGINE_NAME;
 		this.inputEscaping = new TreeMap<String, ScriptEscapingType>();
 	}
 
